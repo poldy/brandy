@@ -58,6 +58,7 @@ static void (*lvalue_table[256])(lvalue *);	/* Forward reference */
 */
 static void bad_token(lvalue *destination) {
   error(ERR_BROKEN, __LINE__, "lvalue");
+  (void)destination;
 }
 
 /*
@@ -66,6 +67,7 @@ static void bad_token(lvalue *destination) {
 */
 static void bad_syntax(lvalue *destination) {
   error(ERR_SYNTAX);
+  (void)destination;
 }
 
 /*

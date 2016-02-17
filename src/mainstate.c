@@ -88,7 +88,7 @@ void exec_call(void) {
   parmcount = 0;
   address = eval_integer();
   check_ateol();
-  emulate_call(address, parmcount, parameters);
+  emulate_call(address, parmcount);
 }
 
 /*

@@ -31,7 +31,7 @@ extern void emulate_endeq(int32);
 extern void emulate_waitdelay(int32);
 extern int32 emulate_getswino(char *, int32);
 extern void emulate_sys(int32, int32[], int32[], int32*);
-extern void emulate_call(int32, int32, int32 []);
+extern void emulate_call(int32, int32);
 extern int32 emulate_usr(int32);
 extern int32 emulate_time(void);
 extern void emulate_setime(int32);

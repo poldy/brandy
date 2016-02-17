@@ -116,7 +116,7 @@ static int32 emulate_mos(int32 address) {
 ** unsupported except to provide limited support for the BBC MOS
 ** calls supported by the Acorn interpreter
 */
-void emulate_call(int32 address, int32 parmcount, int32 parameters []) {
+void emulate_call(int32 address, int32 parmcount) {
   if (parmcount==0 && address>=LOW_MOS && address<=HIGH_MOS)
     emulate_mos(address);
   else {

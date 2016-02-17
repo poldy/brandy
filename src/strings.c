@@ -458,7 +458,7 @@ static boolean collect(void) {
   n = freestrings-1;
   while (n>=0 && base[n].freestart==NIL) n--;	/* Find final block in table */
   if (n>=0 && returnable(base[n].freestart, base[n].freesize)) {	/* Return block to Basic heap if possible */
-    freemem(base[n].freestart, base[n].freesize);
+    freemem(base[n].freesize);
 #ifdef DEBUG
     allocated-=base[n].freesize;
     fprintf(stderr, "Returned %d bytes at %p to Basic heap\n", base[n].freesize, base[n].freestart);

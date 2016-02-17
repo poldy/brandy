@@ -666,16 +666,16 @@ void fileio_getnumber(int32 handle, boolean *isint, int32 *ip, float64 *fp) {
   case PRINT_FLOAT:
     switch (double_type) {
     case XMIXED_ENDIAN:
-      for (n=0; n<sizeof(float64); n++) temp[n] = read(stream);
+      for (n=0; n<(int32)sizeof(float64); n++) temp[n] = read(stream);
       break;
     case XLITTLE_ENDIAN:
-      for (n=0; n<sizeof(float64); n++) temp[n^4] = read(stream);
+      for (n=0; n<(int32)sizeof(float64); n++) temp[n^4] = read(stream);
       break;
     case XBIG_ENDIAN:
-      for (n=0; n<sizeof(float64); n++) temp[n^3] = read(stream);
+      for (n=0; n<(int32)sizeof(float64); n++) temp[n^3] = read(stream);
       break;
     case XBIG_MIXED_ENDIAN:
-      for (n=0; n<sizeof(float64); n++) temp[n^7] = read(stream);
+      for (n=0; n<(int32)sizeof(float64); n++) temp[n^7] = read(stream);
     }
     memmove(fp, temp, sizeof(float64));
     *isint = FALSE;
@@ -732,7 +732,7 @@ int32 fileio_getstring(int32 handle, char *p) {
     break;
   case PRINT_LONGSTR:	/* Reading long string */
     length = 0;		/* Start by reading the string length (four bytes, little endian) */
-    for (n=0; n<sizeof(int32); n++) length+=read(stream)<<(n*BYTESHIFT);
+    for (n=0; n<(int32)sizeof(int32); n++) length+=read(stream)<<(n*BYTESHIFT);
     for (n=0; n<length; n++) p[n] = read(stream);
     break;
   default:
@@ -811,16 +811,16 @@ void fileio_printfloat(int32 handle, float64 value) {
   memmove(temp, &value, sizeof(float64));
   switch (double_type) {
   case XMIXED_ENDIAN:
-    for (n=0; n<sizeof(float64); n++) write(stream, temp[n]);
+    for (n=0; n<(int32)sizeof(float64); n++) write(stream, temp[n]);
     break;
   case XLITTLE_ENDIAN:
-    for (n=0; n<sizeof(float64); n++) write(stream, temp[n^4]);
+    for (n=0; n<(int32)sizeof(float64); n++) write(stream, temp[n^4]);
     break;
   case XBIG_ENDIAN:
-    for (n=0; n<sizeof(float64); n++) write(stream, temp[n^3]);
+    for (n=0; n<(int32)sizeof(float64); n++) write(stream, temp[n^3]);
     break;
   case XBIG_MIXED_ENDIAN:
-    for (n=0; n<sizeof(float64); n++) write(stream, temp[n^7]);
+    for (n=0; n<(int32)sizeof(float64); n++) write(stream, temp[n^7]);
   }
   fileinfo[handle].lastwaswrite = TRUE;
 }
@@ -849,7 +849,7 @@ void fileio_printstring(int32 handle, char *string, int32 length) {
   else {	/* Long string - Use interpreter's extended format */
     write(stream, PRINT_LONGSTR);
     temp = length;
-    for (n=0; n<sizeof(int32); n++) {	/* Write four byte length to file */
+    for (n=0; n<(int32)sizeof(int32); n++) {	/* Write four byte length to file */
       write(stream, temp & BYTEMASK);
       temp = temp>>BYTESHIFT;
     }
@@ -904,6 +904,7 @@ int32 fileio_getext(int32 handle) {
 void fileio_setext(int32 handle, int32 newsize) {
   handle = map_handle(handle);
   error(ERR_UNSUPPORTED);
+  (void)newsize;
 }
 
 /*
