@@ -1,8 +1,8 @@
 # Makefile for brandy under NetBSD and Linux
 
-LD := clang
+LD := cc
 
-CFLAGS += -ggdb3 -DDEBUG $(shell sdl-config --cflags) -DUSE_SDL -D_XOPEN_SOURCE=600
+CFLAGS += -ggdb3 -DDEBUG -D_XOPEN_SOURCE=600 -Wall -Wextra -std=c11
 
 # Should manually remove XOPEN_SOURCE for Windows targets
 CFLAGS2 = -Os -fomit-frame-pointer -pipe -Wall -DNDEBUG -D_XOPEN_SOURCE=600
