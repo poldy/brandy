@@ -32,8 +32,6 @@
 #include "tokens.h"
 #include "errors.h"
 
-#define DEBUG
-
 #ifdef DEBUG
 #include <stdio.h>
 #endif
