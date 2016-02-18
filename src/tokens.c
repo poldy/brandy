@@ -471,7 +471,7 @@ static void store_fpvalue(float64 fpvalue) {
   int n;
   if (next+FLOATSIZE>=MAXSTATELEN) error(ERR_STATELEN);
   memcpy(temp, &fpvalue, sizeof(float64));
-  for (n=0; n<sizeof(float64); n++) {
+  for (n=0; n<(int)sizeof(float64); n++) {
     tokenbase[next] = temp[n];
     next++;
   }
@@ -682,16 +682,16 @@ static void copy_token(void) {
   }
   lp++;         /* Skip the token */
   if (firstitem) {      /* Token is first item in the statement */
-    for (n=0; n<TOKTABSIZE; n++) {
+    for (n=0; n<(int)TOKTABSIZE; n++) {
       if (toktype == tokens[n].lhtype && tokvalue == tokens[n].lhvalue) break;
     }
   }
   else {        /* Token is not the first item in the statement */
-    for (n=0; n<TOKTABSIZE; n++) {
+    for (n=0; n<(int)TOKTABSIZE; n++) {
       if (toktype == tokens[n].type && tokvalue == tokens[n].value) break;
     }
   }
-  if (n<TOKTABSIZE)     /* Found token - Copy it to buffer and do token-specific processing */
+  if (n<(int)TOKTABSIZE)     /* Found token - Copy it to buffer and do token-specific processing */
     copy_keyword(n);
   else {        /* Cannot find token value */
     lasterror = ERR_SYNTAX;
@@ -1878,7 +1878,7 @@ boolean isvalid(byte *bp) {
   length = get_linelen(bp);
   if (length<MINSTATELEN || length>MAXSTATELEN) return FALSE;
   execoff = get_exec(bp);
-  if (execoff<OFFSOURCE || execoff>length) return FALSE;
+  if (execoff<(int)OFFSOURCE || execoff>length) return FALSE;
   base = cp = bp+execoff;
   while (cp-base<=length && *cp != NUL) {
     token = *cp;

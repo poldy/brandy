@@ -205,7 +205,7 @@ static void list_vars(void) {
       emulate_printf("Variables in program:\r\n");
     }
     list_variables(ch);
-    list_libraries(ch);
+    list_libraries();
   }
 }
 

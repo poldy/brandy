@@ -160,7 +160,7 @@ void *condalloc(int32 size) {
 ** to the middle of the heap. 'returnable' should be called to ensure
 ** that the memory can be returned
 */
-void freemem(void *where, int32 size) {
+void freemem(int32 size) {
   basicvars.vartop-=size;
   basicvars.stacklimit.bytesp-=size;
 }
