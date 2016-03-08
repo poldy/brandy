@@ -607,6 +607,7 @@ void emulate_setime (int32 time) {
 ** quietly ignores it
 */
 void emulate_setimedol(char *time) {
+  (void)time;
 }
 
 /*
@@ -614,6 +615,7 @@ void emulate_setimedol(char *time) {
 */
 void emulate_mouse_on(int32 pointer) {
   error(ERR_UNSUPPORTED);
+  (void)pointer;
 }
 
 /*
@@ -629,6 +631,8 @@ void emulate_mouse_off(void) {
 */
 void emulate_mouse_to(int32 x, int32 y) {
   error(ERR_UNSUPPORTED);
+  (void)x;
+  (void)y;
 }
 
 /*
@@ -637,6 +641,8 @@ void emulate_mouse_to(int32 x, int32 y) {
 */
 void emulate_mouse_step(int32 x, int32 y) {
   error(ERR_UNSUPPORTED);
+  (void)x;
+  (void)y;
 }
 
 /*
@@ -645,6 +651,10 @@ void emulate_mouse_step(int32 x, int32 y) {
 */
 void emulate_mouse_colour(int32 colour, int32 red, int32 green, int32 blue) {
   error(ERR_UNSUPPORTED);
+  (void)colour;
+  (void)red;
+  (void)green;
+  (void)blue;
 }
 
 /*
@@ -653,6 +663,10 @@ void emulate_mouse_colour(int32 colour, int32 red, int32 green, int32 blue) {
 */
 void emulate_mouse_rectangle(int32 left, int32 bottom, int32 right, int32 top) {
   error(ERR_UNSUPPORTED);
+  (void)left;
+  (void)bottom;
+  (void)right;
+  (void)top;
 }
 
 /*
@@ -660,6 +674,7 @@ void emulate_mouse_rectangle(int32 left, int32 bottom, int32 right, int32 top) {
 */
 void emulate_mouse(int32 values[]) {
   error(ERR_UNSUPPORTED);
+  (void)values;
 }
 
 /*
@@ -670,6 +685,7 @@ void emulate_mouse(int32 values[]) {
 int32 emulate_adval(int32 x) {
   if (basicvars.runflags.flag_cosmetic) error(ERR_UNSUPPORTED);
   return 0;
+  (void)x;
 }
 
 /*
@@ -691,6 +707,11 @@ void emulate_sound_off(void) {
 */
 void emulate_sound(int32 channel, int32 amplitude, int32 pitch, int32 duration, int32 delay) {
   if (basicvars.runflags.flag_cosmetic) error(ERR_UNSUPPORTED);
+  (void)channel;
+  (void)amplitude;
+  (void)pitch;
+  (void)duration;
+  (void)delay;
 }
 
 /*
@@ -698,6 +719,7 @@ void emulate_sound(int32 channel, int32 amplitude, int32 pitch, int32 duration, 
 */
 void emulate_beats(int32 x) {
   if (basicvars.runflags.flag_cosmetic) error(ERR_UNSUPPORTED);
+  (void)x;
 }
 
 /*
@@ -714,6 +736,7 @@ int32 emulate_beatfn(void) {
 */
 void emulate_tempo(int32 x) {
   if (basicvars.runflags.flag_cosmetic) error(ERR_UNSUPPORTED);
+  (void)x;
 }
 
 /*
@@ -729,6 +752,8 @@ int32 emulate_tempofn(void) {
 */
 void emulate_voice(int32 channel, char *name) {
   if (basicvars.runflags.flag_cosmetic) error(ERR_UNSUPPORTED);
+  (void)channel;
+  (void)name;
 }
 
 /*
@@ -736,6 +761,7 @@ void emulate_voice(int32 channel, char *name) {
 */
 void emulate_voices(int32 count) {
   if (basicvars.runflags.flag_cosmetic) error(ERR_UNSUPPORTED);
+  (void)count;
 }
 
 /*
@@ -743,6 +769,8 @@ void emulate_voices(int32 count) {
 */
 void emulate_stereo(int32 channels, int32 position) {
   if (basicvars.runflags.flag_cosmetic) error(ERR_UNSUPPORTED);
+  (void)channels;
+  (void)position;
 }
 
 /*
@@ -752,6 +780,7 @@ void emulate_stereo(int32 channels, int32 position) {
 */
 void emulate_endeq(int32 newend) {
   error(ERR_UNSUPPORTED);
+  (void)newend;
 }
 
 #if defined(TARGET_DJGPP)
@@ -1024,6 +1053,8 @@ void emulate_oscli(char *command, char *respfile) {
 int32 emulate_getswino(char *name, int32 length) {
   error(ERR_UNSUPPORTED);
   return 0;
+  (void)name;
+  (void)length;
 }
 
 /*
@@ -1032,6 +1063,10 @@ int32 emulate_getswino(char *name, int32 length) {
 */
 void emulate_sys(int32 swino, int32 inregs[], int32 outregs[], int32 *flags) {
   error(ERR_UNSUPPORTED);
+  (void)swino;
+  (void)inregs;
+  (void)outregs;
+  (void)flags;
 }
 
 /*

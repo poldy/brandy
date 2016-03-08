@@ -83,7 +83,7 @@ void exec_oscmd(void) {
 ** supported at the moment
 */
 void exec_call(void) {
-  int32 address, parmcount, parameters[1];
+  int32 address, parmcount;
   basicvars.current++;
   parmcount = 0;
   address = eval_integer();
