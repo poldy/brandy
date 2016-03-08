@@ -181,7 +181,7 @@ char *tonumber(char *cp, boolean *isinteger, int32 *intvalue, float64 *floatvalu
 int itob(char *dest, int32 value, int32 width) {
   int count, n;
   char temp[sizeof(int32)*8];
-  for (n=0; n<sizeof(int32)*8; n++) {
+  for (n=0; n<(int)sizeof(int32)*8; n++) {
     temp[n] = (value & 1)+'0';
     value = value>>1;
   }
@@ -195,5 +195,6 @@ int itob(char *dest, int32 value, int32 width) {
   }
   *dest = NUL;
   return count;
+  (void)width;
 }
 

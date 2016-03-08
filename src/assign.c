@@ -55,6 +55,7 @@
 */
 static void assignment_invalid(pointers address) {
   error(ERR_BROKEN, __LINE__, "assign");	/* Bad variable type found */
+  (void)address;
 }
 
 /*
@@ -844,6 +845,7 @@ static void assiminus_floatarray(pointers address) {
 
 static void assiminus_badtype(pointers address) {
   error(ERR_BADARITH);	/* Cannot use '-=' on string operands */
+  (void)address;
 }
 
 static void (*assign_table[])(pointers) = {

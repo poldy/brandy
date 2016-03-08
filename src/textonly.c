@@ -309,6 +309,7 @@ static void clrscr(void) {
 ** -- ANSI --
 */
 void set_cursor(boolean underline) {
+  (void)underline;
 }
 
 /*
@@ -1307,6 +1308,9 @@ int32 emulate_vdufn(int variable) {
  */
 int32 emulate_colourfn(int32 red, int32 green, int32 blue) {
   return colourdepth - 1;
+  (void)red;
+  (void)green;
+  (void)blue;
 }
 
 /*
@@ -1438,6 +1442,8 @@ void emulate_modestr(int32 xres, int32 yres, int32 colours, int32 greys, int32 x
   }
   if (n>HIGHMODE) error(ERR_BADMODE);
   emulate_mode(n);
+  (void)xeig;
+  (void)yeig;
 }
 
 /*
@@ -1453,6 +1459,9 @@ int32 emulate_modefn(void) {
 */
 void emulate_plot(int32 code, int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
+  (void)code;
+  (void)x;
+  (void)y;
 }
 
 /*
@@ -1462,6 +1471,8 @@ void emulate_plot(int32 code, int32 x, int32 y) {
 int32 emulate_pointfn(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
   return 0;
+  (void)x;
+  (void)y;
 }
 
 /*
@@ -1472,6 +1483,8 @@ int32 emulate_pointfn(int32 x, int32 y) {
 int32 emulate_tintfn(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
   return 0;
+  (void)x;
+  (void)y;
 }
 
 /*
@@ -1479,6 +1492,8 @@ int32 emulate_tintfn(int32 x, int32 y) {
 */
 void emulate_pointto(int32 x, int32 y) {
   error(ERR_UNSUPPORTED);
+  (void)x;
+  (void)y;
 }
 
 /*
@@ -1556,6 +1571,9 @@ void emulate_tint(int32 action, int32 tint) {
 */
 void emulate_gcol(int32 action, int32 colour, int32 tint) {
   error(ERR_NOGRAPHICS);
+  (void)action;
+  (void)colour;
+  (void)tint;
 }
 
 /*
@@ -1566,6 +1584,11 @@ void emulate_gcol(int32 action, int32 colour, int32 tint) {
 */
 void emulate_gcolrgb(int32 action, int32 background, int32 red, int32 green, int32 blue) {
   error(ERR_NOGRAPHICS);
+  (void)action;
+  (void)background;
+  (void)red;
+  (void)green;
+  (void)blue;
 }
 
 /*
@@ -1574,6 +1597,9 @@ void emulate_gcolrgb(int32 action, int32 background, int32 red, int32 green, int
 */
 void emulate_gcolnum(int32 action, int32 background, int32 colnum) {
   error(ERR_NOGRAPHICS);
+  (void)action;
+  (void)background;
+  (void)colnum;
 }
 
 /*
@@ -1604,6 +1630,10 @@ void emulate_mapcolour(int32 colour, int32 physcolour) {
 */
 void emulate_setcolour(int32 background, int32 red, int32 green, int32 blue) {
   if (basicvars.runflags.flag_cosmetic) error(ERR_UNSUPPORTED);
+  (void)background;
+  (void)red;
+  (void)green;
+  (void)blue;
 }
 
 /*
@@ -1636,14 +1666,20 @@ void emulate_defcolour(int32 colour, int32 red, int32 green, int32 blue) {
 
 void emulate_move(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
 }
 
 void emulate_moveby(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
 }
 
 void emulate_draw(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
 }
 
 void emulate_drawby(int32 x, int32 y) {
@@ -1653,42 +1689,78 @@ void emulate_drawby(int32 x, int32 y) {
 
 void emulate_line(int32 x1, int32 y1, int32 x2, int32 y2) {
   error(ERR_NOGRAPHICS);
+  (void)x1;
+  (void)y1;
+  (void)x2;
+  (void)y2;
 }
 
 void emulate_point(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
 }
 
 void emulate_pointby(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
 }
 
 void emulate_ellipse(int32 x, int32 y, int32 majorlen, int32 minorlen, float64 angle, boolean isfilled) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
+  (void)majorlen;
+  (void)minorlen;
+  (void)angle;
+  (void)isfilled;
 }
 
 void emulate_circle(int32 x, int32 y, int32 radius, boolean isfilled) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
+  (void)radius;
+  (void)isfilled;
 }
 
 void emulate_drawrect(int32 x1, int32 y1, int32 width, int32 height, boolean isfilled) {
   error(ERR_NOGRAPHICS);
+  (void)x1;
+  (void)y1;
+  (void)width;
+  (void)height;
+  (void)isfilled;
 }
 
 void emulate_moverect(int32 x1, int32 y1, int32 width, int32 height, int32 x2, int32 y2, boolean ismove) {
   error(ERR_NOGRAPHICS);
+  (void)x1;
+  (void)y1;
+  (void)width;
+  (void)height;
+  (void)x2;
+  (void)y2;
+  (void)ismove;
 }
 
 void emulate_fill(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
 }
 
 void emulate_fillby(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
 }
 
 void emulate_origin(int32 x, int32 y) {
   error(ERR_NOGRAPHICS);
+  (void)x;
+  (void)y;
 }
 
 /*
