@@ -2,7 +2,7 @@
 
 LD := cc
 
-CFLAGS += -ggdb3 -DDEBUG -Wall -Wextra -std=c11
+CFLAGS += -ggdb3 -DDEBUG -Wall -Wextra -std=c11 -fstack-check
 
 # Should manually remove XOPEN_SOURCE for Windows targets
 CFLAGS2 = -Os -fomit-frame-pointer -pipe -Wall -DNDEBUG
